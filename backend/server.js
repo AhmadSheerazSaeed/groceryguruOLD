@@ -3,11 +3,14 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import cors from "cors";
 
+import customerRoute from '../backend/routes/customerRoute.js'
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
+// routes:
+app.use('/customerRoute', customerRoute)
 dotenv.config();
 
 app.listen(process.env.PORT, (req, res) => {
