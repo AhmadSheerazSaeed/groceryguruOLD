@@ -1,5 +1,12 @@
 import Customer from "../models/customerModel.js";
 
+
+/**
+ * 
+ * @param {*} req 
+ * @param {*} res 
+ * @returns 
+ */
 export const newCustomer = async (req, res) => {
   try {
     const customers = await Customer.create({
@@ -22,5 +29,8 @@ export const newCustomer = async (req, res) => {
     });
 
     return res.status(200).json({message: "New customer has been created" , customers})
-  } catch (error) {}
+  } catch (error) {
+    return res.status(500).json({message: error.toString()})
+
+  }
 };

@@ -6,12 +6,14 @@ import cors from "cors";
 import customerRoute from '../backend/routes/customerRoute.js'
 const app = express();
 
+dotenv.config();
 app.use(cors());
 app.use(express.json());
 
 // routes:
-app.use('/customerRoute', customerRoute)
-dotenv.config();
+app.use('/customerRoute', customerRoute);
+
+
 
 app.listen(process.env.PORT, (req, res) => {
   console.log(`Server started on http://localhost:${process.env.PORT}`);
