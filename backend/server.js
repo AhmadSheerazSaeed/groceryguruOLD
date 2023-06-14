@@ -3,7 +3,9 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import cors from "cors";
 
-import customerRoute from '../backend/routes/customerRoute.js'
+import customerRoute from '../backend/routes/customerRoute.js';
+import categoryRoute from '../backend/routes/categoryRoute.js'
+
 const app = express();
 
 dotenv.config();
@@ -11,7 +13,8 @@ app.use(cors());
 app.use(express.json());
 
 // routes:
-app.use('/customerRoute', customerRoute);
+app.use('/', customerRoute);
+app.use('/', categoryRoute);
 
 
 
