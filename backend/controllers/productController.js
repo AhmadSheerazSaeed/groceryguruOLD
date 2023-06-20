@@ -1,8 +1,18 @@
 import { StatusCodes } from "http-status-codes";
 import Product from "../models/Product.js";
 
+export const allProducts = async (req, res) => {
+  try {
+    const products = await Product.find();
 
-export const allProducts = async(reqc)
+    return res.status(StatusCodes.OK).json(products);
+  } catch (error) {
+    return res
+      .status(StatusCodes.INTERNAL_SERVER_ERROR)
+      .json({ message: error.toString() });
+  }
+};
+
 export const newProduct = async (req, res) => {
   try {
     const createdProduct = await Product.create({
