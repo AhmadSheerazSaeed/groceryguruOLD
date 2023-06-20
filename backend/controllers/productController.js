@@ -1,6 +1,8 @@
 import { StatusCodes } from "http-status-codes";
 import Product from "../models/Product.js";
 
+
+export const allProducts = async(reqc)
 export const newProduct = async (req, res) => {
   try {
     const createdProduct = await Product.create({
