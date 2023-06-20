@@ -16,3 +16,5 @@ export const createCart = async (req, res) => {
       .json({ message: error.toString() });
   }
 };
+
+export default { createCart };

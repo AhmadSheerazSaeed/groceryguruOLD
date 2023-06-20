@@ -1,7 +1,7 @@
 import { Schema, model } from "mongoose";
 
 const productSchema = new Schema({
-  categoryId: { type: Schema.Types.ObjectId, ref: "category" },//check the name category
+  categoryId: { type: Schema.Types.ObjectId, ref: "category" }, //check the name category
   itemName: { type: String, required: true },
   imageUrl: String,
   itemDescription: String,
@@ -11,7 +11,10 @@ const productSchema = new Schema({
   discount: Number,
   countryOfOrigin: { type: String, required: true },
   manufacturingDate: Date,
-  expiryDate:  Date,
-  dateUpdated: Date.now(),
+  expiryDate: Date,
+  dateUpdated: Date,
   available: Boolean,
 });
+
+const Product = model("product ", productSchema);
+export default Product;

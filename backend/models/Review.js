@@ -5,7 +5,7 @@ const reviewSchema = new Schema({
   productId: { type: Schema.Types.ObjectId, ref: "product" },
   rating: String,
   comment: String,
-  dateOfReview: Date.now(),
+  dateOfReview: Date,
 });
 
 const Review = model("review", reviewSchema);
