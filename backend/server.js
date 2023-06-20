@@ -2,6 +2,9 @@ import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import cors from "cors";
+import productRoutes from "./routes/productRoutes.js";
+import reviewRoutes from "./routes/reviewRoutes.js";
+import cartRoutes from "./routes/cartRoutes.js";
 
 const app = express();
 
@@ -24,3 +27,7 @@ mongoose
   .catch((error) => {
     console.log(error.toString());
   });
+
+app.use("/api/products", productRoutes);
+app.use("/api/reviews", reviewRoutes);
+app.use("/api/cart", cartRoutes);
