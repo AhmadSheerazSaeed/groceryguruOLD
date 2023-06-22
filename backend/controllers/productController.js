@@ -1,6 +1,38 @@
 import { StatusCodes } from "http-status-codes";
 import Product from "../models/Product.js";
+export const productById = async (req, res) => {
+  try {
+    const productId = await Product.findById(req.params.id);
 
+    if (!productById) {
+      return res.status(StatusCodes.NOT_FOUND).json("product not found");
+    }
+    return res.status(StatusCodes.NOT_FOUND).json(productId);
+  } catch (error) {
+    return res
+      .status(StatusCodes.INTERNAL_SERVER_ERROR)
+      .json({ message: error.toString() });
+  }
+};
+
+export const productByName = async (req, res) => {
+  try {
+    const productName = await Product.findOne({
+      itemName: req.params.itemName,
+    });
+
+    if (!productByName) {
+      return res
+        .status(StatusCodes.NOT_FOUND)
+        .json("product not found or check the spelling");
+    }
+    return res.status(StatusCodes.OK).json(productName);
+  } catch (error) {
+    return res
+      .status(StatusCodes.INTERNAL_SERVER_ERROR)
+      .json({ message: error.toString() });
+  }
+};
 export const allProducts = async (req, res) => {
   try {
     const products = await Product.find();
@@ -13,6 +45,24 @@ export const allProducts = async (req, res) => {
   }
 };
 
+export const deleteProduct = async (req, res) => {
+  try {
+    const productIdToDelete = await Product.findByIdAndDelete({
+      id: req.params.id,
+    });
+
+    if (!productIdToDelete) {
+      return res.status(StatusCodes.NOT_FOUND).json("product not found");
+    }
+    return res
+      .status(StatusCodes.OK)
+      .json({ message: "prodict deleted", deleteProduct: productIdToDelete });
+  } catch (error) {
+    return res
+      .status(StatusCodes.INTERNAL_SERVER_ERROR)
+      .json({ message: error.toString() });
+  }
+};
 export const newProduct = async (req, res) => {
   try {
     const createdProduct = await Product.create({
@@ -40,4 +90,4 @@ export const newProduct = async (req, res) => {
   }
 };
 
-export default { newProduct };
+export default { newProduct, deleteProduct, productById,productByName };
