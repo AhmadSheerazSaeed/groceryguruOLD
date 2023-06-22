@@ -45,6 +45,22 @@ export const allProducts = async (req, res) => {
   }
 };
 
+export const prodctByDiscount = async (req,res)=>{
+  try {
+    const productDiscoutNumber = await Product.findOne({
+      discount:req.params.discount
+    })
+    if(!productDiscoutNumber){
+      return res.status(StatusCodes.NOT_FOUND).json("no discount number for the product");
+    }
+    return res.status(StatusCodes.OK).json(productDiscoutNumber)
+  } catch (error) {
+    return res
+    .status(StatusCodes.INTERNAL_SERVER_ERROR)
+    .json({ message: error.toString() });
+  }
+}
+
 export const deleteProduct = async (req, res) => {
   try {
     const productIdToDelete = await Product.findByIdAndDelete({
@@ -90,4 +106,4 @@ export const newProduct = async (req, res) => {
   }
 };
 
-export default { newProduct, deleteProduct, productById,productByName };
+export default { newProduct, deleteProduct,prodctByDiscount, productById,productByName };

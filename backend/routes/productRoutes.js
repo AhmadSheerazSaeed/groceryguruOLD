@@ -1,5 +1,5 @@
 import express from "express";
-import {newProduct,allProducts,deleteProduct,productById,productByName} from '../controllers/productController.js';
+import {newProduct,allProducts,prodctByDiscount,deleteProduct,productById,productByName} from '../controllers/productController.js';
 
 const router = express.Router();
 router.get("/allproducts", allProducts);
@@ -12,7 +12,7 @@ router.get("/productbyname/:name", productByName);
 //   "/productbymanufacturingdate/:manufacturingdate",
 //   productByManufacturingDate
 // );
-//router.get("/productbydiscount/:discount", prodctByDiscount);
+router.get("/productbydiscount/:discount", prodctByDiscount);
 //router.get("/availableproducts/:available", availableProducts);
 //router.get("/notavailableproducts/:available", notAvailableProducts);
 router.post("/newproduct", newProduct);
