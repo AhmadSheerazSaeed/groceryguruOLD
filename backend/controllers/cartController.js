@@ -12,7 +12,7 @@ export const updateCartProductQuantity = async (req,res)=>{
     const updatedCart = await Cart.findOneAndUpdate(
       {customerId:customerId,"items.productId":productId},
       {$inc:{"items.$.quantity": quantityChange}},
-      {new:true}
+      { new: true, arrayFilters: [{ "item.productId": productId }] }
     )
     if (!updatedCart) {
       return res

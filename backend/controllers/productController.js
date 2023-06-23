@@ -72,7 +72,7 @@ export const deleteProduct = async (req, res) => {
     }
     return res
       .status(StatusCodes.OK)
-      .json({ message: "prodict deleted", deleteProduct: productIdToDelete });
+      .json({ message: "product deleted", deleteProduct: productIdToDelete });
   } catch (error) {
     return res
       .status(StatusCodes.INTERNAL_SERVER_ERROR)

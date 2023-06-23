@@ -1,6 +1,25 @@
 import { StatusCodes } from "http-status-codes";
 import Review from "../models/Review.js";
 
+export const productRating = async (req, res) => {
+  const productId = req.params.productId;
+  const rating= req.params.rating
+  try {
+    const ratedProduct = await Review.findOne(
+      {productId:productId},
+      {rating:rating},
+    );
+    if (!ratedProduct) {
+      return res.status(StatusCodes.NOT_FOUND).json("rating not found");
+    }
+    return res.status(StatusCodes.OK).json(ratedProduct);
+  } catch (error) {
+    return res
+      .status(StatusCodes.INTERNAL_SERVER_ERROR)
+      .json({ message: error.toString() });
+  }
+};
+
 export const allReviews = async (req, res) => {
   try {
     const reviews = await Review.find();
@@ -82,4 +101,11 @@ export const deleteReview = async (req, res) => {
       .json({ message: error.toString() });
   }
 };
-export default { allReviews, newReview, editReview,reviewsByProduct, deleteReview };
+export default {
+  allReviews,
+  newReview,
+  editReview,
+  productRating,
+  reviewsByProduct,
+  deleteReview,
+};
