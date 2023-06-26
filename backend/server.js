@@ -3,8 +3,8 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import cors from "cors";
 
-import customerRoute from '../backend/routes/customerRoute.js';
-import categoryRoute from '../backend/routes/categoryRoute.js'
+import customerRouter from './route/customerRouter.js';
+import categoryRouter from './route/categoryRouter.js'
 
 const app = express();
 
@@ -13,8 +13,8 @@ app.use(cors());
 app.use(express.json());
 
 // routes:
-app.use('/', customerRoute);
-app.use('/', categoryRoute);
+app.use('/api/customers', customerRouter);
+app.use('/api/category', categoryRouter);
 
 
 
