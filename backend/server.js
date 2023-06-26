@@ -3,12 +3,20 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import cors from "cors";
 
+import customerRouter from './route/customerRouter.js';
+import categoryRouter from './route/categoryRouter.js'
+
 const app = express();
 
+dotenv.config();
 app.use(cors());
 app.use(express.json());
 
-dotenv.config();
+// routes:
+app.use('/api/customers', customerRouter);
+app.use('/api/category', categoryRouter);
+
+
 
 app.listen(process.env.PORT, (req, res) => {
   console.log(`Server started on http://localhost:${process.env.PORT}`);
