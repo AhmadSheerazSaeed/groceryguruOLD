@@ -1,0 +1,10 @@
+.wrapper_navigation {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.linkStyle {
+  text-decoration: none;
+  color: black;
+}

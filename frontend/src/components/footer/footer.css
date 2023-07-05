@@ -1,0 +1,60 @@
+/* .wrapper_footer {
+  position: absolute;
+  bottom: 0;
+} */
+@import url("https://fonts.googleapis.com/css2?family=Tauri&display=swap");
+
+.footer-section {
+  font-family: "Tauri", sans-serif;
+}
+
+.grid-container {
+  border: 3px dotted green;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  padding: 6rem;
+  margin: 2rem 10rem;
+  font-size: 15px;
+  line-height: 3px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+h3 {
+  padding-bottom: 1rem;
+}
+h4 {
+  font-weight: normal;
+}
+
+ul {
+  padding-left: 0;
+}
+
+li {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  color: orange;
+  font-size: 1.5rem;
+}
+.phone {
+  margin-left: 1rem;
+}
+
+.location {
+  margin-left: 1rem;
+  line-height: 1.5rem;
+}
+
+.facebook-icon,
+.twitter-icon {
+  margin-left: 1rem;
+  background-color: white;
+  color: orange;
+}

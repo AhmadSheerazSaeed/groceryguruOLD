@@ -1,0 +1,8 @@
+.form_wrapper {
+  display: flex;
+  border-bottom: 0.5px solid rgba(0, 0, 0, 1);
+}
+
+.form_wrapper > input {
+  border: none;
+}

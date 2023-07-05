@@ -1,0 +1,47 @@
+:root {
+  --secondarycolor: #f39317;
+}
+.wrapperNewCustomer {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.wrapperNewCustomer form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wrapperNewCustomer form input {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  width: 500px;
+  padding: 0.7rem;
+  margin: 0.5rem 0;
+  border-radius: 4px;
+}
+
+.wrapperNewCustomer form div {
+  width: 500px;
+}
+
+.wrapperNewCustomer form div button {
+  background-color: var(--secondarycolor);
+  padding: 0 1.2rem;
+  height: 45px;
+  width: 90px;
+  color: white;
+  border-radius: 4px;
+  border: none;
+  align-self: flex-start;
+}
+
+/* media query for 600 px */
+@media screen and (max-width: 600px) {
+  .wrapperNewCustomer form input {
+    width: 200px;
+  }
+
+  .wrapperNewCustomer form div {
+    width: 200px;
+  }
+}
